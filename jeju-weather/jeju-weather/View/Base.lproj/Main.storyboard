@@ -63,22 +63,28 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dBS-8a-5c4">
-                                <rect key="frame" x="37" y="280" width="301" height="144"/>
+                                <rect key="frame" x="37" y="280" width="301" height="197.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최저: 00 현재: 00 최고: 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRq-Kz-m9a">
-                                        <rect key="frame" x="1" y="0.0" width="299.5" height="33.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최저: 00 최고: 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRq-Kz-m9a">
+                                        <rect key="frame" x="51.5" y="0.0" width="198" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재: 00 체감: 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="865-2G-E91">
+                                        <rect key="frame" x="51.5" y="53.5" width="198" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날씨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53O-3J-GC6">
-                                        <rect key="frame" x="123.5" y="53.5" width="54" height="37"/>
+                                        <rect key="frame" x="123.5" y="107" width="54" height="37"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대한민국, 제주특별자치도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIq-Wf-6OO">
-                                        <rect key="frame" x="11.5" y="110.5" width="278" height="33.5"/>
+                                        <rect key="frame" x="11.5" y="164" width="278" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -108,7 +114,8 @@
                         <outlet property="locationLabel" destination="PIq-Wf-6OO" id="YkZ-Aj-Gci"/>
                         <outlet property="phoneCallButton" destination="uAb-th-n27" id="TPA-uW-fOc"/>
                         <outlet property="refreshButton" destination="gyg-fy-TK4" id="1Fe-9w-OHz"/>
-                        <outlet property="tempLabel" destination="MRq-Kz-m9a" id="vS6-FV-7dY"/>
+                        <outlet property="tempLabel1" destination="MRq-Kz-m9a" id="3of-oi-vdM"/>
+                        <outlet property="tempLabel2" destination="865-2G-E91" id="11f-r1-k1c"/>
                         <outlet property="weatherImageView" destination="OnX-C4-KJS" id="7Kj-9S-FY2"/>
                     </connections>
                 </viewController>
