@@ -23,7 +23,8 @@ private var apiKey: String {
 }
 
 struct WeatherManager {
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=\(apiKey)&units=metric"
+    
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=\(apiKey)&units=metric&lang=kr"
     
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
@@ -40,6 +41,15 @@ struct WeatherManager {
             
             // 3. Give the session a task
             let task = session.dataTask(with: url, completionHandler: handle(data: response: error: ))
+            // if you use closure
+            /*
+            let task = session.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+             }
+            */
             
             // 4. Start the task
             task.resume()
@@ -54,8 +64,39 @@ struct WeatherManager {
         }
         
         if let safeData = data {
-            let dataString = String(data: safeData, encoding: .utf8)
-            print(dataString)
+            // if use this method by closure,
+            // self.parseJSON(weatherData: safeData)
+            parseJSON(weatherData: safeData)
+        }
+    }
+    
+    func parseJSON(weatherData: Data) {
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(WeatherData.self , from: weatherData)
+            let temp = decodedData.main.temp
+            let id = decodedData.weather[0].description
+            print(temp, id)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func getConditionName(code : Int) {
+        switch code
+        {
+        case 200...232:
+            return "cloud.bolt.fill"
+        case 300...321:
+            return "cloud.drizzle.fill"
+        case 500...531:
+            return "cloud.heavyrain.fill"
+        case 600...622:
+            return "wind.snow"
+        case 700...781:
+            return "sun.haze.fill:"
+        case 800:
+            
         }
     }
 }

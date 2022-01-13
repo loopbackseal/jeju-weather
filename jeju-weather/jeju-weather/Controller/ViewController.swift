@@ -10,11 +10,10 @@ import UIKit
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
-        let cityName = "jeju"
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let weather = WeatherManager()
-        weather.fetchWeather(cityName: cityName)
+        weather.fetchWeather(cityName: "jeju")
     }
 
 
