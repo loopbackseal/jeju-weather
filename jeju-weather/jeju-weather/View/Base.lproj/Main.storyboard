@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,23 +12,105 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="jeju_weather" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <view key="view" contentMode="scaleAspectFit" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sun.haze.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fWz-Vg-hzv">
-                                <rect key="frame" x="50" y="102" width="275" height="213"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OnX-C4-KJS">
+                                <rect key="frame" x="70" y="46.5" width="235" height="217.5"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="VXg-Bm-npo"/>
+                                </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cN4-J6-ghP">
+                                <rect key="frame" x="100" y="504" width="175" height="108"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyg-fy-TK4">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="PLj-pA-ut0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="새로 고침!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAb-th-n27">
+                                        <rect key="frame" x="0.0" y="58" width="175" height="50"/>
+                                        <color key="backgroundColor" red="0.48425126889999998" green="0.77637964370000001" blue="0.28180637489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="SYR-p3-JxE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="전화 걸기!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dBS-8a-5c4">
+                                <rect key="frame" x="37" y="280" width="301" height="144"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최저: 00 현재: 00 최고: 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRq-Kz-m9a">
+                                        <rect key="frame" x="1" y="0.0" width="299.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날씨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53O-3J-GC6">
+                                        <rect key="frame" x="123.5" y="53.5" width="54" height="37"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대한민국, 제주특별자치도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIq-Wf-6OO">
+                                        <rect key="frame" x="11.5" y="110.5" width="278" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fWz-Vg-hzv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3lc-Mw-U07"/>
-                            <constraint firstItem="fWz-Vg-hzv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Tea-s0-fhs"/>
-                            <constraint firstItem="fWz-Vg-hzv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="fBx-vv-Kel"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dBS-8a-5c4" secondAttribute="trailing" constant="37" id="AaL-fG-88a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OnX-C4-KJS" secondAttribute="trailing" constant="70" id="FIP-sA-yVU"/>
+                            <constraint firstItem="dBS-8a-5c4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="RyV-rh-5cA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cN4-J6-ghP" secondAttribute="bottom" constant="55" id="SBl-nE-LI3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cN4-J6-ghP" secondAttribute="trailing" constant="100" id="TCd-Ob-zz7"/>
+                            <constraint firstItem="OnX-C4-KJS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="VkS-a8-PIt"/>
+                            <constraint firstItem="OnX-C4-KJS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dCM-fK-BJn"/>
+                            <constraint firstItem="cN4-J6-ghP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j3A-Ab-Osb"/>
+                            <constraint firstItem="dBS-8a-5c4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oG9-N6-VwS"/>
+                            <constraint firstItem="dBS-8a-5c4" firstAttribute="top" secondItem="OnX-C4-KJS" secondAttribute="bottom" constant="15" id="qBv-cc-36u"/>
+                            <constraint firstItem="OnX-C4-KJS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="wPf-ms-xs7"/>
+                            <constraint firstItem="cN4-J6-ghP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="zFN-x2-RdW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="conditionLabel" destination="53O-3J-GC6" id="7vS-AQ-QgX"/>
+                        <outlet property="locationLabel" destination="PIq-Wf-6OO" id="YkZ-Aj-Gci"/>
+                        <outlet property="phoneCallButton" destination="uAb-th-n27" id="TPA-uW-fOc"/>
+                        <outlet property="refreshButton" destination="gyg-fy-TK4" id="1Fe-9w-OHz"/>
+                        <outlet property="tempLabel" destination="MRq-Kz-m9a" id="vS6-FV-7dY"/>
+                        <outlet property="weatherImageView" destination="OnX-C4-KJS" id="7Kj-9S-FY2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -36,7 +118,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="sun.haze.fill" catalog="system" width="128" height="119"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

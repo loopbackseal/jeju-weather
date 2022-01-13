@@ -75,14 +75,15 @@ struct WeatherManager {
         do {
             let decodedData = try decoder.decode(WeatherData.self , from: weatherData)
             let temp = decodedData.main.temp
-            let id = decodedData.weather[0].description
-            print(temp, id)
+            let id = decodedData.weather[0].id
+            let condition = decodedData.weather[0].description
+            print(temp, getConditionImg(code: id), condition)
         } catch {
             print(error)
         }
     }
     
-    func getConditionName(code : Int) {
+    func getConditionImg(code : Int) -> String {
         switch code
         {
         case 200...232:
@@ -96,7 +97,13 @@ struct WeatherManager {
         case 700...781:
             return "sun.haze.fill:"
         case 800:
-            
+            return "sun.max.fill"
+        case 801...802:
+            return "cloud.sun.fill"
+        case 803...804:
+            return "smoke.fill"
+        default:
+            return "heart.fill"
         }
     }
 }
