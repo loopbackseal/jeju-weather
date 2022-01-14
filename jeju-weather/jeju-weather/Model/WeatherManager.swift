@@ -22,9 +22,12 @@ private var apiKey: String {
   }
 }
 
+var weatherInfo: [String] = ["0", "0", "heart.fill", "맑음", "0", "0"]
+
 struct WeatherManager {
     
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=\(apiKey)&units=metric&lang=kr"
+    
     
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
@@ -57,7 +60,7 @@ struct WeatherManager {
     }
     
     
-    func handle(data: Data?, response: URLResponse?, error: Error?)  {
+    func handle(data: Data?, response: URLResponse?, error: Error?) {
         if error != nil {
             print(error!)
             return
@@ -74,10 +77,13 @@ struct WeatherManager {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(WeatherData.self , from: weatherData)
-            let temp = decodedData.main.temp
+            let temp = String(format: "%.0f", round(decodedData.main.temp))
+            let humidity = String(decodedData.main.humidity)
             let id = decodedData.weather[0].id
             let condition = decodedData.weather[0].description
-            print(temp, getConditionImg(code: id), condition)
+            let wind = String(decodedData.wind.speed)
+            let cloud = String(decodedData.clouds.all)
+            weatherInfo = [temp, humidity, getConditionImg(code: id), condition, wind, cloud]
         } catch {
             print(error)
         }
@@ -103,7 +109,7 @@ struct WeatherManager {
         case 803...804:
             return "smoke.fill"
         default:
-            return "heart.fill"
+            return "Untitled design (1)"
         }
     }
 }

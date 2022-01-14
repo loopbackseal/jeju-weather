@@ -24,17 +24,17 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cN4-J6-ghP">
-                                <rect key="frame" x="100" y="504" width="175" height="108"/>
+                                <rect key="frame" x="90" y="509" width="195" height="108"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyg-fy-TK4">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="195" height="50"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="PLj-pA-ut0"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="새로 고침!">
+                                        <state key="normal" title="🍊 다시 확인 🍊">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -42,16 +42,19 @@
                                                 <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="refreshButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbq-wb-i8c"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAb-th-n27">
-                                        <rect key="frame" x="0.0" y="58" width="175" height="50"/>
+                                        <rect key="frame" x="0.0" y="58" width="195" height="50"/>
                                         <color key="backgroundColor" red="0.48425126889999998" green="0.77637964370000001" blue="0.28180637489999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="SYR-p3-JxE"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="전화 걸기!">
+                                        <state key="normal" title="🍏 전화 걸기 🍏">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -59,32 +62,35 @@
                                                 <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="phoneCallButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0L6-WQ-938"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dBS-8a-5c4">
-                                <rect key="frame" x="37" y="280" width="301" height="197.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="dBS-8a-5c4">
+                                <rect key="frame" x="37" y="280" width="301" height="184"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최저: 00 최고: 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRq-Kz-m9a">
-                                        <rect key="frame" x="51.5" y="0.0" width="198" height="33.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기온: 00℃  습도: 00%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRq-Kz-m9a">
+                                        <rect key="frame" x="22" y="0.0" width="257.5" height="37"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재: 00 체감: 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="865-2G-E91">
-                                        <rect key="frame" x="51.5" y="53.5" width="198" height="33.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="풍속: 00 m/s 구름: 00%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="865-2G-E91">
+                                        <rect key="frame" x="15" y="49" width="271.5" height="37"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날씨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53O-3J-GC6">
-                                        <rect key="frame" x="123.5" y="107" width="54" height="37"/>
+                                        <rect key="frame" x="123.5" y="98" width="54" height="37"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대한민국, 제주특별자치도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIq-Wf-6OO">
-                                        <rect key="frame" x="11.5" y="164" width="278" height="33.5"/>
+                                        <rect key="frame" x="11.5" y="147" width="278" height="37"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -98,22 +104,19 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dBS-8a-5c4" secondAttribute="trailing" constant="37" id="AaL-fG-88a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OnX-C4-KJS" secondAttribute="trailing" constant="70" id="FIP-sA-yVU"/>
                             <constraint firstItem="dBS-8a-5c4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="RyV-rh-5cA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cN4-J6-ghP" secondAttribute="bottom" constant="55" id="SBl-nE-LI3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cN4-J6-ghP" secondAttribute="trailing" constant="100" id="TCd-Ob-zz7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cN4-J6-ghP" secondAttribute="bottom" constant="50" id="SBl-nE-LI3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cN4-J6-ghP" secondAttribute="trailing" constant="90" id="TCd-Ob-zz7"/>
                             <constraint firstItem="OnX-C4-KJS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="VkS-a8-PIt"/>
                             <constraint firstItem="OnX-C4-KJS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dCM-fK-BJn"/>
                             <constraint firstItem="cN4-J6-ghP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j3A-Ab-Osb"/>
                             <constraint firstItem="dBS-8a-5c4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oG9-N6-VwS"/>
                             <constraint firstItem="dBS-8a-5c4" firstAttribute="top" secondItem="OnX-C4-KJS" secondAttribute="bottom" constant="15" id="qBv-cc-36u"/>
                             <constraint firstItem="OnX-C4-KJS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="wPf-ms-xs7"/>
-                            <constraint firstItem="cN4-J6-ghP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="zFN-x2-RdW"/>
+                            <constraint firstItem="cN4-J6-ghP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="zFN-x2-RdW"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="conditionLabel" destination="53O-3J-GC6" id="7vS-AQ-QgX"/>
-                        <outlet property="locationLabel" destination="PIq-Wf-6OO" id="YkZ-Aj-Gci"/>
-                        <outlet property="phoneCallButton" destination="uAb-th-n27" id="TPA-uW-fOc"/>
-                        <outlet property="refreshButton" destination="gyg-fy-TK4" id="1Fe-9w-OHz"/>
                         <outlet property="tempLabel1" destination="MRq-Kz-m9a" id="3of-oi-vdM"/>
                         <outlet property="tempLabel2" destination="865-2G-E91" id="11f-r1-k1c"/>
                         <outlet property="weatherImageView" destination="OnX-C4-KJS" id="7Kj-9S-FY2"/>
