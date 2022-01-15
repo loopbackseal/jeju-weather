@@ -6,6 +6,11 @@
 //
 
 import Foundation
+
+protocol WeatherManagerDelegate {
+    func updateUI(_ weather: WeatherModel)
+}
+
 // Use Plist for get API_KEY
 private var apiKey: String {
   get {
@@ -28,6 +33,7 @@ struct WeatherManager {
     
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=\(apiKey)&units=metric&lang=kr"
     
+    var delegate: WeatherManagerDelegate?
     
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
@@ -69,11 +75,13 @@ struct WeatherManager {
         if let safeData = data {
             // if use this method by closure,
             // self.parseJSON(weatherData: safeData)
-            parseJSON(weatherData: safeData)
+            if let weather = parseJSON(weatherData: safeData) {
+                delegate?.updateUI(weather)
+            }
         }
     }
     
-    func parseJSON(weatherData: Data) {
+    func parseJSON(weatherData: Data) -> WeatherModel? {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(WeatherData.self , from: weatherData)
@@ -83,9 +91,11 @@ struct WeatherManager {
             let condition = decodedData.weather[0].description
             let wind = String(decodedData.wind.speed)
             let cloud = String(decodedData.clouds.all)
-            weatherInfo = [temp, humidity, getConditionImg(code: id), condition, wind, cloud]
+            let weather = WeatherModel(temp: temp, humidity: humidity, conditionImage: getConditionImg(code: id), condition: condition, wind: wind, cloud: cloud)
+            return weather
         } catch {
             print(error)
+            return nil
         }
     }
     

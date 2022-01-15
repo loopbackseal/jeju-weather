@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WeatherManagerDelegate {
 
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var tempLabel1: UILabel!
@@ -29,26 +29,27 @@ class ViewController: UIViewController {
       }
     }
     
-    let weather = WeatherManager()
+    var weather = WeatherManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        weather.delegate = self
         weather.fetchWeather(cityName: "jeju")
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-            self.updateUI(weatherInfo)
+//            self.updateUI(weather.fetchWeather(cityName: "jeju"))
         }
     }
 
     @IBAction func refreshButtonTouched(_ sender: UIButton) {
         weather.fetchWeather(cityName: "jeju")
-        updateUI(weatherInfo)
+//        updateUI(weather.fetchWeather(cityName: "jeju"))
     }
     
-    func updateUI(_ weatherArray: [String]) {
-        tempLabel1.text = "기온: \(weatherArray[0])℃  습도: \(weatherArray[1])%"
-        tempLabel2.text = "풍속: \(weatherArray[4])m/s 구름: \(weatherArray[5])%"
-        conditionLabel.text = "\(weatherArray[3])🍊"
-        weatherImageView.image = UIImage(systemName: weatherArray[2])
+    func updateUI(_ model: WeatherModel) {
+        tempLabel1.text = "기온: \(model.temp)℃  습도: \(model.humidity)%"
+        tempLabel2.text = "풍속: \(model.wind)m/s 구름: \(model.cloud)%"
+        conditionLabel.text = "\(model.condition)🍊"
+        weatherImageView.image = UIImage(systemName: model.conditionImage)
     }
     
     @IBAction func phoneCallButtonTouched(_ sender: UIButton) {

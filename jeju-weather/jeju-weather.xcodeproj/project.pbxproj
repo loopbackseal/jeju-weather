@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B1AF546279172300023A836 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B1AF548279172300023A836 /* InfoPlist.strings */; };
+		9B1AF54B2792D8DB0023A836 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF54A2792D8DB0023A836 /* WeatherModel.swift */; };
 		9B250904278FEC7700802389 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B250903278FEC7700802389 /* WeatherManager.swift */; };
 		9B2509092790187000802389 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2509082790187000802389 /* WeatherData.swift */; };
 		9BF590EB278FEBAB00D35068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF590EA278FEBAB00D35068 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		9B1AF5492791724E0023A836 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9B1AF54A2792D8DB0023A836 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		9B250903278FEC7700802389 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		9B2509082790187000802389 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		9BF590E7278FEBAB00D35068 /* jeju-weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "jeju-weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +66,7 @@
 			children = (
 				9B250903278FEC7700802389 /* WeatherManager.swift */,
 				9B2509082790187000802389 /* WeatherData.swift */,
+				9B1AF54A2792D8DB0023A836 /* WeatherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				9BF590EF278FEBAB00D35068 /* ViewController.swift in Sources */,
 				9BF590EB278FEBAB00D35068 /* AppDelegate.swift in Sources */,
 				9B250904278FEC7700802389 /* WeatherManager.swift in Sources */,
+				9B1AF54B2792D8DB0023A836 /* WeatherModel.swift in Sources */,
 				9BF590ED278FEBAB00D35068 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,7 +267,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -319,7 +323,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
