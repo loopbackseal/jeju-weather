@@ -8,7 +8,8 @@
 import Foundation
 
 protocol WeatherManagerDelegate {
-    func updateUI(_ weather: WeatherModel)
+    func updateUI(_ weatherManager: WeatherManager, model: WeatherModel)
+    func didFailWithError(error: Error)
 }
 
 // Use Plist for get API_KEY
@@ -68,7 +69,7 @@ struct WeatherManager {
     
     func handle(data: Data?, response: URLResponse?, error: Error?) {
         if error != nil {
-            print(error!)
+            delegate?.didFailWithError(error: error!)
             return
         }
         
@@ -76,7 +77,7 @@ struct WeatherManager {
             // if use this method by closure,
             // self.parseJSON(weatherData: safeData)
             if let weather = parseJSON(weatherData: safeData) {
-                delegate?.updateUI(weather)
+                delegate?.updateUI(self, model: weather)
             }
         }
     }
@@ -94,7 +95,7 @@ struct WeatherManager {
             let weather = WeatherModel(temp: temp, humidity: humidity, conditionImage: getConditionImg(code: id), condition: condition, wind: wind, cloud: cloud)
             return weather
         } catch {
-            print(error)
+            delegate?.didFailWithError(error: error)
             return nil
         }
     }

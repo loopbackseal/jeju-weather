@@ -45,7 +45,7 @@ class ViewController: UIViewController, WeatherManagerDelegate {
 //        updateUI(weather.fetchWeather(cityName: "jeju"))
     }
     
-    func updateUI(_ model: WeatherModel) {
+    func updateUI(_ weatherManager: WeatherManager, model: WeatherModel) {
         tempLabel1.text = "기온: \(model.temp)℃  습도: \(model.humidity)%"
         tempLabel2.text = "풍속: \(model.wind)m/s 구름: \(model.cloud)%"
         conditionLabel.text = "\(model.condition)🍊"
