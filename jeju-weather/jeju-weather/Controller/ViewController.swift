@@ -8,7 +8,20 @@
 import UIKit
 
 class ViewController: UIViewController, WeatherManagerDelegate {
-
+    func updateUI(_ weatherManager: WeatherManager, model: WeatherModel) {
+        DispatchQueue.main.async {
+            self.tempLabel1.text = "기온: \(model.temp)℃  습도: \(model.humidity)%"
+            self.tempLabel2.text = "풍속: \(model.wind)m/s 구름: \(model.cloud)%"
+            self.conditionLabel.text = "\(model.condition)🍊"
+            self.weatherImageView.image = UIImage(systemName: model.conditionImage)
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+    
+    
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var tempLabel1: UILabel!
     @IBOutlet weak var tempLabel2: UILabel!
@@ -32,25 +45,15 @@ class ViewController: UIViewController, WeatherManagerDelegate {
     var weather = WeatherManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         weather.delegate = self
         weather.fetchWeather(cityName: "jeju")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-//            self.updateUI(weather.fetchWeather(cityName: "jeju"))
-        }
     }
 
     @IBAction func refreshButtonTouched(_ sender: UIButton) {
+        weather.delegate = self
         weather.fetchWeather(cityName: "jeju")
-//        updateUI(weather.fetchWeather(cityName: "jeju"))
     }
     
-    func updateUI(_ weatherManager: WeatherManager, model: WeatherModel) {
-        tempLabel1.text = "기온: \(model.temp)℃  습도: \(model.humidity)%"
-        tempLabel2.text = "풍속: \(model.wind)m/s 구름: \(model.cloud)%"
-        conditionLabel.text = "\(model.condition)🍊"
-        weatherImageView.image = UIImage(systemName: model.conditionImage)
-    }
     
     @IBAction func phoneCallButtonTouched(_ sender: UIButton) {
         dialNumber(number: phoneNumber)
@@ -66,7 +69,7 @@ class ViewController: UIViewController, WeatherManagerDelegate {
                UIApplication.shared.openURL(url)
            }
        } else {
-                print("WTF")// add error message here
+                print("error occurs in dial")
        }
     }
 }
