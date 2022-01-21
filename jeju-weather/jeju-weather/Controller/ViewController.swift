@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController, WeatherManagerDelegate {
     func updateUI(_ weatherManager: WeatherManager, model: WeatherModel) {
@@ -26,7 +27,7 @@ class ViewController: UIViewController, WeatherManagerDelegate {
     @IBOutlet weak var tempLabel1: UILabel!
     @IBOutlet weak var tempLabel2: UILabel!
     @IBOutlet weak var conditionLabel: UILabel!
-    
+   // MARK: - phone Number Setup
     private var phoneNumber: String {
       get {
         // 1
@@ -43,8 +44,12 @@ class ViewController: UIViewController, WeatherManagerDelegate {
     }
     
     var weather = WeatherManager()
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
         weather.delegate = self
         weather.fetchWeather(cityName: "jeju")
     }
@@ -74,3 +79,8 @@ class ViewController: UIViewController, WeatherManagerDelegate {
     }
 }
 
+// MARK: - CLLocationManagerDelegate
+
+extension ViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+}

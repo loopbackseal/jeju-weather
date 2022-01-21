@@ -12,7 +12,7 @@ protocol WeatherManagerDelegate {
     func didFailWithError(error: Error)
 }
 
-// Use Plist for get API_KEY
+// MARK: - Use Plist for get API_KEY
 private var apiKey: String {
   get {
     // 1
@@ -29,7 +29,7 @@ private var apiKey: String {
 }
 
 var weatherInfo: [String] = ["0", "0", "heart.fill", "맑음", "0", "0"]
-
+// MARK: - Weather Manager setup
 struct WeatherManager {
     
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=\(apiKey)&units=metric&lang=kr"
