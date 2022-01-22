@@ -48,8 +48,8 @@ class ViewController: UIViewController, WeatherManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.requestLocation()
         weather.delegate = self
         weather.fetchWeather(cityName: "jeju")
     }
@@ -81,6 +81,18 @@ class ViewController: UIViewController, WeatherManagerDelegate {
 
 // MARK: - CLLocationManagerDelegate
 
-extension ViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
-}
+//extension ViewController: CLLocationManagerDelegate {
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let location = locations.last {
+//            let lat = location.coordinate.latitude
+//            let lon = location.coordinate.longitude
+//            print(lat)
+//            print(lon)
+//        }
+//        print("Got location data")
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+//        print(error)
+//    }
+//}
